@@ -1,0 +1,15 @@
+services:
+  - name: findjob-api
+    type: web
+    env: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: bash start.sh
+
+  - name: findjob-ui
+    type: web
+    env: node
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm run preview -- --port 3000
+    staticPublishPath: dist
